@@ -8,29 +8,30 @@ const nameElement = document.getElementById("name");
 let textIndex = 0;
 let charIndex = 0;
 let isTyping = true;
+let isErasing = false;
 
 function type() {
-  if (charIndex < texts[textIndex].length) {
+  if (charIndex < texts[textIndex].length && isTyping) {
     nameElement.textContent += texts[textIndex].charAt(charIndex);
     charIndex++;
     setTimeout(type, typeSpeed);
-  } else {
+  } else if (!isErasing) {
     isTyping = false;
+    isErasing = true;
     setTimeout(erase, delayAfterTyping);
   }
 }
 
 function erase() {
-  if (charIndex > 0) {
+  if (charIndex > 0 && isErasing) {
     nameElement.textContent = texts[textIndex].substring(0, charIndex - 1);
     charIndex--;
     setTimeout(erase, eraseSpeed);
-  } else {
+  } else if (isErasing) {
     isTyping = true;
-    if (textIndex < texts.length - 1) {
-      textIndex++;
-      setTimeout(type, delayAfterErasing);
-    }
+    isErasing = false;
+    textIndex = (textIndex + 1) % texts.length;
+    setTimeout(type, delayAfterErasing);
   }
 }
 
@@ -38,5 +39,4 @@ function erase() {
 window.onload = function () {
   type();
 };
-
 
