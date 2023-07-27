@@ -3,9 +3,10 @@ body {
 }
 
 h1 {
-  text-align: center;
-  font-size: 48px;
-  margin-top: 200px;
+  text-align: center; /* Optional - To center the h1 element */
+  padding-top: 100px; /* Optional - To add some spacing from the top */
+  font-size: 36px; /* Optional - Adjust the font size as needed */
+  color: #ffffff; /* Set the font color to white */
 }
 
 body {
