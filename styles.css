@@ -20,3 +20,7 @@ body {
  padding: 0; /* Optional - To remove default body padding */
 }
 }
+
+#particles-container {
+  background-color: #1a1a1a;
+}
