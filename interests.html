@@ -3,41 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Interests and Hobbies</title>
+  <title>Interests</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     body {
-      padding: 50px;
+      background-color: #1a1a1a;
       color: #ffffff;
       font-family: Arial, sans-serif;
-      background-color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
     }
+
+    .interests-container {
+      max-width: 600px;
+      background-color: #2c2c2c;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
     h1 {
       text-align: center;
     }
-    ul {
-      list-style: none;
-      padding: 0;
+
+    .interest {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
     }
-    li {
-      margin-bottom: 10px;
+
+    .interest .icon {
+      font-size: 24px;
+      margin-right: 10px;
+      color: #ffffff;
+    }
+
+    .interest .text {
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
-  <h1>Ny Interests and Hobbies</h1>
-  <h2>Interests:</h2>
-  <ul>
-    <li>Cosmos</li>
-    <li>Genetic Science</li>
-    <li>AI Developement:D</li>
+  <div class="interests-container">
+    <h1>Interests</h1>
+    <div class="interest">
+      <i class="fas fa-music icon"></i>
+      <div class="text">Music</div>
+    </div>
+    <div class="interest">
+      <i class="fas fa-camera-retro icon"></i>
+      <div class="text">Photography</div>
+    </div>
+    <div class="interest">
+      <i class="fas fa-globe-americas icon"></i>
+      <div class="text">Travel</div>
+    </div>
     <!-- Add more interests here -->
-  </ul>
-
-  <h2>Hobbies:</h2>
-  <ul>
-    <li>Playing cricket:)</li>
-    <li>Reading Novels</li>
-    <!-- Add more hobbies here -->
-  </ul>
+  </div>
 </body>
 </html>
