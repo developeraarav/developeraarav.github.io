@@ -6,7 +6,10 @@ h1 {
   text-align: center; /* Optional - To center the h1 element */
   padding-top: 100px; /* Optional - To add some spacing from the top */
   font-size: 36px; /* Optional - Adjust the font size as needed */
-  color: #ffffff; /* Set the font color to white */
+}
+
+h1 {
+  color: white; /* White color using the named color 'white' */
 }
 
 body {
