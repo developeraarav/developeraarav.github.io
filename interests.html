@@ -12,7 +12,6 @@
       font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
@@ -51,6 +50,14 @@
 
     .text {
       font-size: 20px;
+    }
+
+    /* Mobile optimization */
+    @media (max-width: 768px) {
+      .interests-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
     }
   </style>
 </head>
