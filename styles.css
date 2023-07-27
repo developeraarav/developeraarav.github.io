@@ -7,3 +7,9 @@ h1 {
   font-size: 48px;
   margin-top: 200px;
 }
+
+body {
+  background-image: url('pexels-piccinng-3052361.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
