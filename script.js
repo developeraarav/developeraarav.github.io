@@ -1,16 +1,48 @@
-// Function to initialize the typing animation
-function initTyped() {
-  const textArray = ["hello there!!", "im aarav pandey"]; // Array of texts to be typed
-  const options = {
-    typeSpeed: 80, // Typing speed in milliseconds
-    loop: false, // Whether to loop through the texts or not
-    showCursor: true, // Whether to display the cursor or not
-    cursorChar: "|", // Custom cursor character
-  };
+const texts = ["hello there!!", "I'm Aarav Pandey"]; // Array of texts to be typed
+const typeSpeed = 100; // Typing speed in milliseconds
+const eraseSpeed = 50; // Speed to erase each character in milliseconds
+const delayAfterTyping = 1000; // Delay after typing each text in milliseconds
+const delayAfterErasing = 500; // Delay after erasing each text in milliseconds
 
-  // Initialize Typed.js on the <h1> element with ID "name"
-  new Typed("#name", options).typed = textArray;
+const nameElement = document.getElementById("name");
+let textIndex = 0;
+let charIndex = 0;
+let isTyping = true;
+
+function type() {
+  if (charIndex < texts[textIndex].length) {
+    nameElement.textContent += texts[textIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, typeSpeed);
+  } else {
+    isTyping = false;
+    setTimeout(erase, delayAfterTyping);
+  }
 }
 
-// Call the function to start the typing animation
-initTyped();
+function erase() {
+  if (charIndex > 0) {
+    nameElement.textContent = texts[textIndex].substring(0, charIndex - 1);
+    charIndex--;
+    setTimeout(erase, eraseSpeed);
+  } else {
+    isTyping = true;
+    textIndex = (textIndex + 1) % texts.length;
+    setTimeout(type, delayAfterErasing);
+  }
+}
+
+function typeOrErase() {
+  if (isTyping) {
+    erase();
+  } else {
+    type();
+  }
+}
+
+// Start the typing animation when the page loads
+window.onload = function () {
+  typeOrErase();
+  setInterval(typeOrErase, (typeSpeed + eraseSpeed) * texts[textIndex].length + delayAfterTyping);
+};
+
