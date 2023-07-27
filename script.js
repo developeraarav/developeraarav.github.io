@@ -27,22 +27,16 @@ function erase() {
     setTimeout(erase, eraseSpeed);
   } else {
     isTyping = true;
-    textIndex = (textIndex + 1) % texts.length;
-    setTimeout(type, delayAfterErasing);
-  }
-}
-
-function typeOrErase() {
-  if (isTyping) {
-    erase();
-  } else {
-    type();
+    if (textIndex < texts.length - 1) {
+      textIndex++;
+      setTimeout(type, delayAfterErasing);
+    }
   }
 }
 
 // Start the typing animation when the page loads
 window.onload = function () {
-  typeOrErase();
-  setInterval(typeOrErase, (typeSpeed + eraseSpeed) * texts[textIndex].length + delayAfterTyping);
+  type();
 };
+
 
